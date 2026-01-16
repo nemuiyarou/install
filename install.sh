@@ -71,13 +71,13 @@ read -p "Choice [1-4]: " gpu_choice
 case $gpu_choice in
     1)
         info "Installing NVIDIA drivers (with VA-API for hardware acceleration)..."
-        sudo pacman -S --noconfirm nvidia-dkms nvidia-utils lib32-nvidia-utils \
+        sudo pacman -S --noconfirm nvidia-open-dkms nvidia-utils lib32-nvidia-utils \
             nvidia-settings libva-nvidia-driver
 
         # Create modprobe config
         info "Configuring NVIDIA for Wayland..."
         sudo tee /etc/modprobe.d/nvidia.conf > /dev/null <<EOF
-options nvidia-drm modeset=1
+options nvidia-drm modeset=1 fbdev=1
 options nvidia NVreg_PreserveVideoMemoryAllocations=1
 EOF
 
