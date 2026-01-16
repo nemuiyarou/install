@@ -242,7 +242,6 @@ monitor=,preferred,auto,1
 exec-once = qs -c noctalia-shell
 
 # Native Hypr ecosystem tools
-exec-once = systemctl --user start hyprpolkitagent
 exec-once = hypridle
 exec-once = hyprsunset --temperature 4500
 
